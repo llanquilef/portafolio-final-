@@ -5,8 +5,8 @@ from rest_framework.documentation import include_docs_urls
 
 router = routers.DefaultRouter()
 router.register(r'usuarios', views.UserViewSet)
-router.register(r'recomendacionesPersonales', views.R_PersonalViewSet)
-router.register(r'recomendacionesUsuario', views.R_UsuarioViewSet)
+router.register(r'recomendacionespersonales', views.R_PersonalViewSet)
+router.register(r'recomendacionesusuarios', views.R_UsuarioViewSet)
 
 
 urlpatterns = [

@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 
 def Index(request):
     
-    """ Vista para ver el Index """
+    """ Vista para el Index """
     
     return render(request, 'index.html')    
     
@@ -45,4 +45,4 @@ class R_UsuarioViewSet(viewsets.ModelViewSet):
     """
     queryset = RecomendacionUsuario.objects.all()
     serializer_class = RecomendacionUsuarioSerializer
-     
+    

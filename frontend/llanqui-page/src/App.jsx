@@ -1,35 +1,54 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// Intento en lo posible no ocupar barrel files y hacer las impoortaciones directamente, obteniendo las siguientes ventajas:
+
+// 1.- Rutas Relativas Claras. 
+// 2.- Menor Configuración.
+// 3- Evitar conflictos con archivos que posean el mismo nombre en diferentes 
+// directorios.
+// 4.- Ciclos poco complejos y más rápidos
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+{/* Import Componentes Página Principal*/}
+
+import { Index } from "./components/Index";
+import { AboutMe } from "./components/AboutMe";
+import { Header } from './components/Header';
+import { Educacion } from './components/Educacion'
+
+{/* Import Toaster para las notificaciones al agregar, eliminar o actualizar una recomendación: personal o de usuario. */}
+
+import { Toaster } from "react-hot-toast";
+import { Contacto } from './components/Contacto'
+
+{/* Import Recomendaciones Personales*/}
+import { RecomendacionesPersonalesPage } from "./pages/RecomendacionesPersonalesPage";
+import { RecomendacionesPersonalesFormPage } from './pages/RecomendacionesPersonalesFormPage';
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+
+         {/* Rutas Principales */}
+        <Route path="/index" element={<Index />}></Route>
+        <Route path="/Header" element={<Header />}></Route>
+        <Route path="/AboutMe" element={<AboutMe />}></Route>
+        <Route path="/Educacion" element={<Educacion />}></Route>       
+        <Route path="/Contacto" element={<Contacto />}></Route>       
+
+        {/* Rutas Recomendaciones Personales */}
+        <Route path="/recomendaciones-personales" element={<RecomendacionesPersonalesPage />}></Route> 
+        <Route path="/recomendaciones-personales-crear" element={<RecomendacionesPersonalesFormPage />}></Route> 
+
+
+        {/* Ruta por si el usuario busca una dirección no existente */}
+        <Route path="*" element= {<div>Página no encontrada</div>} />
+
+      </Routes>
+      <Toaster />
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

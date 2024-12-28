@@ -1,4 +1,3 @@
-from tkinter import TRUE
 from django.db import models
 
 
@@ -18,8 +17,8 @@ class RecomendacionPersonal(models.Model):
         ('Manga', 'Manga'),
     ]
     tipoMultimedia = models.CharField(max_length=50, choices=TIPO_MULTIMEDIA)
-    fechaPost = models.DateField(auto_now_add=TRUE)
-    horaPost = models.DateField(auto_now_add=TRUE)
+    fechaPost = models.DateField(auto_now_add=True)
+    horaPost = models.TimeField(auto_now_add=True)
     
 class RecomendacionUsuario(models.Model):
     nombre = models.CharField(max_length=150)
@@ -37,5 +36,5 @@ class RecomendacionUsuario(models.Model):
         ('Manga', 'Manga'),
     ]
     tipoMultimedia = models.CharField(max_length=50, choices=TIPO_MULTIMEDIA)
-    fechaPost = models.DateField(auto_now_add=TRUE)
-    horaPost = models.DateField(auto_now_add=TRUE)
+    fechaPost = models.DateField(auto_now_add=True)
+    horaPost = models.TimeField(auto_now_add=True)
