@@ -45,4 +45,3 @@ class R_UsuarioViewSet(viewsets.ModelViewSet):
     """
     queryset = RecomendacionUsuario.objects.all()
     serializer_class = RecomendacionUsuarioSerializer
-    

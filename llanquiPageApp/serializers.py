@@ -10,6 +10,8 @@ class UsuarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['id', 'username', 'email', 'first_name', 'last_name', 'password']
+    
+
 
 class RecomendacionPersonalSerializer(serializers.ModelSerializer):
     """
@@ -18,6 +20,7 @@ class RecomendacionPersonalSerializer(serializers.ModelSerializer):
     class Meta:
         model = RecomendacionPersonal
         fields = ('__all__')
+        
 
 
 class RecomendacionUsuarioSerializer(serializers.ModelSerializer):

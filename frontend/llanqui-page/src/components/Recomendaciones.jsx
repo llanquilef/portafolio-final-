@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate} from 'react-router-dom'
 
 export function Recomendaciones() {
+  const navigate = useNavigate();
   return (
     <section className="py-20 bg-orange-100" id="habilidades">
       <div className="container max-w-4xl mx-auto">
@@ -11,24 +13,19 @@ export function Recomendaciones() {
         {/* Párrafo Explicativo acerca de la sección de Recomendaciones Mutlimedia */}
         <p className="text-lg text-gray-700 mb-6 leading-relaxed text-center">
           Bienvenido a la sección de recomendaciones multimedia, donde puedes
-          explorar y compartir tus gustos conmigo y otros usuarios.
+          explorar y compartir tus gustos conmigo.
           <br />
           <br />
           Este sistema utiliza Django REST para gestionar todas las
-          funcionalidades CRUD, permitiéndote crear un usuario, agregar, editar
+          funcionalidades CRUD, permitiéndote crear, actualizar
           y eliminar tus propias recomendaciones.
-          <br />
-          <br />
-          Cada recomendación está asociada a un usuario único. Aunque puedes ver
-          las recomendaciones de otros usuarios, solo puedes gestionar las que
-          has creado en tu sesión.
         </p>
 
         {/* Botón Recomendaciones Usuarios */}
         <div className="flex justify-center gap-4">
           <button
             className="bg-blue-500 mt-6 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition"
-            onClick={() => alert("Aquí irá tu funcionalidad")}
+            onClick={() => navigate("/recomendacionesusuarios-crear")}
           >
             Recomendar Multimedia
           </button>
@@ -38,7 +35,7 @@ export function Recomendaciones() {
         <div className="flex justify-center gap-6">
           <button
             className="bg-blue-500 mt-6 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition"
-            onClick={() => alert("Aquí irá tu funcionalidad")}
+            onClick={() => navigate("/recomendacionespersonales")}
           >
             Mis Recomendaciones
           </button>
