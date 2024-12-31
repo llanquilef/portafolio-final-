@@ -1,17 +1,14 @@
-from django.shortcuts import render
+from django.views.generic import TemplateView
 from rest_framework import viewsets
 from .models import RecomendacionPersonal, RecomendacionUsuario
 from .serializers import RecomendacionPersonalSerializer, RecomendacionUsuarioSerializer, UsuarioSerializer
 from django.contrib.auth.models import User
 
 
-# Index
+# INDEX
+class IndexView(TemplateView):
+    template_name = 'index.html'
 
-def Index(request):
-    
-    """ Vista para el Index """
-    
-    return render(request, 'index.html')    
     
     
 # Usuarios
