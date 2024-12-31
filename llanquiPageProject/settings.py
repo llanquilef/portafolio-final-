@@ -25,9 +25,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Configuración de la clave secreta desde una variable de entorno
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-# Validación de que la clave no esté vacía
-if not SECRET_KEY:
-    raise ValueError("La configuración de SECRET_KEY no puede estar vacía.")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
